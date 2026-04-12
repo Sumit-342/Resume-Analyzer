@@ -41,6 +41,9 @@ html, body, [class*="css"] {
 
 #MainMenu, footer, header { visibility: hidden; }
 .block-container { padding: 0 2rem 2rem; max-width: 1100px; }
+.stApp {
+    background: linear-gradient(135deg, #f7f7f5, #eef3f8);
+}
 
 .hero-wrap {
     padding: 2.8rem 0 2rem;
@@ -591,7 +594,7 @@ with right_col:
             '</div>'
             + ats_items_html +
             '</div>',
-            height=40 + len(ats_breakdown) * 48
+            height=36 + len(ats_breakdown) * 46
         )
 
         # ── Role Prediction + Best Fit ──
