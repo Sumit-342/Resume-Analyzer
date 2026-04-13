@@ -413,12 +413,16 @@ with left_col:
         base64_pdf = base64.b64encode(file_bytes).decode('utf-8')
 
         pdf_display = f"""
-        <iframe 
-            src="data:application/pdf;base64,{base64_pdf}#zoom=60&toolbar=0&scrollbar=1&navpanes=0" 
+        <object 
+            data="data:application/pdf;base64,{base64_pdf}#zoom=60&toolbar=0&navpanes=0" 
+            type="application/pdf"
             width="100%" 
             height="350px"
-            style="border-radius:8px; border:1px solid #e4e4e0; overflow-x:hidden;">
-        </iframe>
+            style="border-radius:8px; border:1px solid #e4e4e0;">
+            <p style="text-align:center;font-size:12px;color:#8a8a84;padding:20px;">
+                PDF preview not supported in this browser
+            </p>
+        </object>
         """
 
         st.markdown(f"""
