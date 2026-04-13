@@ -414,10 +414,10 @@ with left_col:
 
         pdf_display = f"""
         <iframe 
-            src="data:application/pdf;base64,{base64_pdf}" 
+            src="data:application/pdf;base64,{base64_pdf}#zoom=60&toolbar=0&scrollbar=1&navpanes=0" 
             width="100%" 
-            height="250px"
-            style="border-radius:8px; border:1px solid #e4e4e0;">
+            height="350px"
+            style="border-radius:8px; border:1px solid #e4e4e0; overflow-x:hidden;">
         </iframe>
         """
 
@@ -425,8 +425,16 @@ with left_col:
             <div class="card">
                 <div class="card-label">Resume Preview</div>
                 {pdf_display}
-            
             """, unsafe_allow_html=True)
+
+        st.markdown(f"""
+            <a href="data:application/pdf;base64,{base64_pdf}" 
+               download="resume.pdf"
+               style="display:block;text-align:center;margin-top:8px;font-size:12px;
+               color:#1d9e75;text-decoration:none;font-weight:500;">
+               📄 Open / Download Resume
+            </a>
+        """, unsafe_allow_html=True)
 
         # 🔥 IMPORTANT: recreate file
         file_for_extraction = io.BytesIO(file_bytes)
@@ -547,7 +555,7 @@ with right_col:
             '  }'
             '});'
             '</script>',
-            height=180
+            height=220
         )
 
         # ── ATS Score ──
