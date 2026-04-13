@@ -718,3 +718,15 @@ with right_col:
             <p style="font-size:13px;color:#8a8a84;">Upload a PDF on the left to see your score,<br>role predictions, and skill analysis.</p>
         </div>
         """, unsafe_allow_html=True)
+    
+
+    st.divider()
+
+    st.markdown("""
+    ---
+    ### 👨‍💻 Built by Sumit  
+
+    🚀 **AI Resume Analyzer**  
+    📊 Analyze • 📈 Improve • 🎯 Grow  
+
+    """)
