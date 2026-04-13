@@ -719,14 +719,3 @@ with right_col:
         </div>
         """, unsafe_allow_html=True)
     
-
-    st.divider()
-
-    st.markdown("""
-    ---
-    ### 👨‍💻 Built by Sumit  
-
-    🚀 **AI Resume Analyzer**  
-    📊 Analyze • 📈 Improve • 🎯 Grow  
-
-    """)
