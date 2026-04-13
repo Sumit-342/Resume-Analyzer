@@ -1,7 +1,8 @@
+import streamlit as st
 import PyPDF2
 import fitz
 
-
+@st.cache_data
 def extract_text_from_pdf(pdf_file):
     pdf = fitz.open(stream=pdf_file.read(), filetype="pdf")
     text = ""
