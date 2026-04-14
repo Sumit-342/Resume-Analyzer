@@ -10,7 +10,7 @@ import fitz
 import streamlit.components.v1 as components
 
 def show_pdf_preview(uploaded_file):
-    uploaded_file.seek(0)  # VERY IMPORTANT
+    uploaded_file.seek(0)  
 
     base64_pdf = base64.b64encode(uploaded_file.read()).decode('utf-8')
 
@@ -260,7 +260,7 @@ def extract_info(text, pdf_bytes):
 # Email
     email = re.findall(r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}', text)
     if email:
-        info["Email"] = min(email, key=len)  # shortest match is cleanest
+        info["Email"] = min(email, key=len)  
     else:
         info["Email"] = "Not found"
     
@@ -273,7 +273,7 @@ def extract_info(text, pdf_bytes):
     name = "Not found"
     for line in lines[:15]:
         cleaned = line.strip()
-        # skip job titles / role keywords
+        # skip job titles 
         skip_keywords = ['developer', 'engineer', 'designer', 'analyst', 'manager', 
                         'enthusiast', 'summary', 'education', 'skills', 'profile',
                         'web', 'student', 'fresher']
@@ -289,7 +289,7 @@ def extract_info(text, pdf_bytes):
     info["Name"] = name
 
 
-    # LinkedIn & GitHub — pass bytes directly, no external variable
+    # LinkedIn & GitHub 
     links = extract_links(io.BytesIO(pdf_bytes))
 
     github = [l for l in links if "github.com" in l]
@@ -310,7 +310,7 @@ def calculate_ats_score(text):
     score = 0
     breakdown = {}
 
-    # 1. Contact Info (20 points)
+    # 1. Contact Info ( 20 points)
     contact = 0
     if re.search(r'[\w\.-]+@[\w\.-]+\.\w+', text): contact += 7
     if re.search(r'[\+\(]?[0-9][0-9 .\-\(\)]{8,}[0-9]', text): contact += 7
@@ -318,7 +318,7 @@ def calculate_ats_score(text):
     breakdown["Contact Info"] = min(contact, 20)
     score += breakdown["Contact Info"]
 
-    # 2. Section Headers (20 points)
+    # 2. Section Headers ( 20 points)
     headers = 0
     for word in ['experience', 'education', 'skills', 'projects', 'summary', 'objective', 'certifications']:
         if word in text.lower(): headers += 3
@@ -440,7 +440,7 @@ with left_col:
             </a>
         """, unsafe_allow_html=True)
 
-        # 🔥 IMPORTANT: recreate file
+        # recreate file
         file_for_extraction = io.BytesIO(file_bytes)
         text = extract_text_from_pdf(file_for_extraction)
 
@@ -493,7 +493,7 @@ with right_col:
 
     if uploaded_file:
 
-        # ── Your logic (untouched) ──
+        #  logic 
         results = {}
         for role, skills in SKILLS.items():
             matched = match_skills(text, skills)
@@ -696,7 +696,7 @@ with right_col:
             </div>
             """, unsafe_allow_html=True)
 
-        # ── Suggestions — each missing skill as an actionable item ──
+        # ── Suggestions ──
         sugg_items_html = ""
         for skill in missing_skills:
             sugg_items_html += (
