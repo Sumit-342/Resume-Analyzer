@@ -1,7 +1,7 @@
 # 📄 Resume Analyzer
 
 A smart resume analysis tool built using Streamlit that extracts key information, analyzes skills, predicts suitable roles, and provides actionable feedback.
-🔗 Live Demo: https://sumit-resume-analyzer.streamlit.app/
+## 🔗 Live Demo: https://sumit-resume-analyzer.streamlit.app/
 ---
 
 ## 🚀 Features
